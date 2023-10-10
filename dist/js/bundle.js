@@ -16,7 +16,7 @@
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n\r\nconsole.log(`Тестирование импорта. Импортировали число - ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]}`);\n\n//# sourceURL=webpack://webpack-babel/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n\nconst x = 'test';\nconsole.log(`Тестирование импорта. Импортировали число - ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]}`);\nconsole.log(x);\n\n//# sourceURL=webpack://webpack-babel/./src/js/main.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tes
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconsole.log(\"Imported module\");\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (250);\n\n//# sourceURL=webpack://webpack-babel/./src/js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconsole.log(\"Imported module\");\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (110);\n\n//# sourceURL=webpack://webpack-babel/./src/js/test.js?");
 
 /***/ })
 
