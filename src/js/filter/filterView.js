@@ -1,4 +1,10 @@
-export function render() {
+export function render(params) {
+
+    let complexNames = '';
+    params.complexNames.forEach((name) => {
+        complexNames += `<option value="Речной">ЖК ${name}</option>`
+    });
+
     const markup = `<!-- Filter -->
     <form method="GET" class="container p-0">
         <div class="heading-1">Выбор квартир:</div>
@@ -66,7 +72,8 @@ export function render() {
                             min="0"
                             type="number"
                             class="range__input"
-                            placeholder="38"
+                            placeholder="${params.squareMin}"
+                            value="${params.squareMin}"
                         />
                         <div class="range__value">м2</div>
                     </label>
@@ -77,7 +84,8 @@ export function render() {
                             min="0"
                             type="number"
                             class="range__input"
-                            placeholder="120"
+                            placeholder="${params.squareMax}"
+                            value="${params.squareMax}"
                         />
                         <div class="range__value">м2</div>
                     </label>
@@ -93,7 +101,8 @@ export function render() {
                             name="pricemin"
                             min="0"
                             class="range__input range__input--price"
-                            placeholder="2325000"
+                            placeholder="${params.priceMin}"
+                            value="${params.priceMin}"
                         />
                         <div class="range__value">₽</div>
                     </div>
@@ -104,7 +113,8 @@ export function render() {
                             name="pricemax"
                             min="0"
                             class="range__input range__input--price"
-                            placeholder="4525000"
+                            placeholder="${params.priceMax}"
+                            value="${params.priceMax}"
                         />
                         <div class="range__value">₽</div>
                     </div>
@@ -117,6 +127,6 @@ export function render() {
         </div>
     </form>
     <!-- // Filter -->`;
-
+    console.log(params);
     document.querySelector('#app').insertAdjacentHTML('afterbegin', markup);
 }

@@ -1,13 +1,12 @@
 import Filter from './filterModel';
 import * as view from './filterView';
 
-export default function(state) {
-    // view.render();
-
-
-    console.log(state);
-
+export default async function(state) {
+  
     if(!state.filter) state.filter = new Filter();
    
-   console.log(state.filter.getParams());
+    await state.filter.getParams();
+
+    view.render(state.filter.params);
+
 }
