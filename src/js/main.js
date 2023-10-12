@@ -1,9 +1,36 @@
-require('@babel/polyfill');
+import homePage from './pages/homePage';
+import singleItem from './pages/singleItemPage';
+import favoritesPage from './pages/favoritePage';
+import bidsPage from './pages/bidsPage';
+import errorPage from './pages/errorPage';
+
+const routes = [
+	{path: '/', component: homePage},
+	{path: 'item', component: singleItem},
+	{path: 'favorites', component: favoritesPage},
+	{path: 'bids', component: bidsPage}
+]
 
 
-import num from "./test";
-const x = 'test';
-console.log(`Тестирование импорта. Импортировали число - ${num}`);
-console.log(x);
+function findConponentPath(path, routes) {
+	return routes.find(function(route) {
+		return route.path === path;
+	});
+}
+
+
+function router() {
+	const pathArray = location.hash.split('/');
+	
+	let currentPath = pathArray[0] === '' ? '/' : pathArray[1];
+	currentPath = currentPath === '' ? '/' : currentPath;
+
+	const {component = errorPage} = findConponentPath(currentPath, routes) || {};
+	component();
+}
+
+
+window.addEventListener('hashchange', router);
+window.addEventListener('load', router);
 
 

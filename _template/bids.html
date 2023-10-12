@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8" />
-        <title>Главная - магазин "Квадратный метр"</title>
+        <title>Избранное - магазин "Квадратный метр"</title>
         <link rel="stylesheet" href="./css/bootstrap.min.css" />
         <link rel="stylesheet" href="./css/main.css" />
         <link
@@ -13,40 +13,13 @@
             href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700,800|Oswald:700&display=swap&subset=cyrillic-ext"
             rel="stylesheet"
         />
-
-        <style>
-            .preloader-holder {
-                width: 100%;
-            }
-            .card__img img {
-                width: 200px;
-                height: 160px;
-                object-fit: contain;
-            }
-            .none {
-                display: none;
-            }
-            .object__photo-wrapper img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
-            .button-favourite:focus {
-                outline: none;
-            }
-            a.btn-show-favourites:hover {
-                text-decoration: none;
-            }
-        </style>
     </head>
 
     <body class="sticky-footer">
-
         <!-- content-wrapper -->
         <div class="content-wrapper">
-
             <!-- top-panel -->
-            <header class="top-panel">
+            <div class="top-panel">
                 <div class="top-panel__container">
                     <div class="top-panel__title">
                         интернет магазин недвижимости
@@ -54,19 +27,14 @@
                     <!-- <div class="top-panel__phone"><a href="tel:+8800557755">8 (800) 55-77-55</a></div> -->
 
                     <div class="top-panel__favourites">
-                        <a href="#/favourites" class="btn-show-favourites mr-5">
+                        <button class="btn-show-favourites">
                             <i class="fas fa-heart"></i> Избранное
-                        </a>
-
-                        <a href="#/bids" class="btn-show-favourites">
-                            <i class="fas fa-file-alt"></i> Заявки
-                        </a>
+                        </button>
                     </div>
                 </div>
-            </header>
+            </div>
             <!-- // top-panel -->
 
-            <!-- Logo -->
             <div class="logo-wrapper">
                 <a href="index.html" class="logo">
                     <div class="logo__title">КВАДРАТНЫЙ МЕТР</div>
@@ -75,27 +43,50 @@
                     </div>
                 </a>
             </div>
-            <!-- // Logo -->
 
-            <!-- Application -->
-            <div id="app">
-
+            <div class="container p-0 mb-5">
+                <div class="heading-1">Заявки</div>
             </div>
-            <!-- // Application -->
 
+            <!-- panels-wrapper -->
+            <div class="panels-wrapper">
+                <div class="container p-0">
+                    <!-- panel -->
+                    <div class="panel panel--no-hover">
+                        <div class="panel__bidname">Сергей</div>
+                        <div class="panel__bidphone">+7 (905) 158-74-56</div>
+                    </div>
+                    <!-- // panel -->
+                    <!-- panel -->
+                    <div class="panel panel--no-hover">
+                        <div class="panel__bidname">Сергей</div>
+                        <div class="panel__bidphone">+7 (905) 158-74-56</div>
+                    </div>
+                    <!-- // panel -->
+                    <!-- panel -->
+                    <div class="panel panel--no-hover">
+                        <div class="panel__bidname">Сергей</div>
+                        <div class="panel__bidphone">+7 (905) 158-74-56</div>
+                    </div>
+                    <!-- // panel -->
+                </div>
+            </div>
+            <!-- // panels-wrapper -->
         </div>
         <!-- // content-wrapper -->
 
-        <footer class="footer">
+        <div class="footer">
             <div class="contaier">
                 <p>
                     Учебный проект школы
-                    <a href="https://webcademy.ru/">ВебКадеми.рф</a> с курса
+                    <a href="https://webcademy.ru/">WebCademy</a> с курса
                     <a href="https://webcademy.ru/jscourse/"
                         >JavaScript разработка</a
-                    >. Проект выполнил <a href="#">Имя Фамилия</a>.
+                    >. Проект выполнил <a href="#">Сергей Васильев</a>.
                 </p>
             </div>
-        </footer>
-    <script src="babelpolyfill.bundle.js"></script><script src="index.bundle.js"></script></body>
+        </div>
+
+
+    </body>
 </html>
