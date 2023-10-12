@@ -4,6 +4,11 @@ import favoritesPage from './pages/favoritePage';
 import bidsPage from './pages/bidsPage';
 import errorPage from './pages/errorPage';
 
+const state = {};
+
+//Тестирование потом УДАЛИТЬ!
+window.state = state;
+
 const routes = [
 	{path: '/', component: homePage},
 	{path: 'item', component: singleItem},
@@ -26,7 +31,7 @@ function router() {
 	currentPath = currentPath === '' ? '/' : currentPath;
 
 	const {component = errorPage} = findConponentPath(currentPath, routes) || {};
-	component();
+	component(state);
 }
 
 
