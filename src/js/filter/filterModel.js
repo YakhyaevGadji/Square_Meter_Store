@@ -1,8 +1,6 @@
 export default class Filter {
     constructor() {}
 
-
-    
     async getParams() {
         try {
             const link = 'https://jsproject.webcademy.ru/itemsinfo';
