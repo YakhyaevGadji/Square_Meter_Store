@@ -9,7 +9,6 @@ export default class Filter {
             const response = await fetch(link);
             const data = await response.json();
             this.params = await data;
-            console.log(this.params);
         } catch (error) {
             alert(arror);
         }

@@ -1,4 +1,5 @@
-export function render() {
+export function render(params) {
+    
     const markup = `<!-- Filter -->
     <form method="GET" class="container p-0">
         <div class="heading-1">Выбор квартир:</div>
@@ -117,6 +118,8 @@ export function render() {
         </div>
     </form>
     <!-- // Filter -->`;
+    
 
     document.querySelector('#app').insertAdjacentHTML('afterbegin', markup);
+    
 }
