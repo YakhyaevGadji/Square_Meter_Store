@@ -1,5 +1,12 @@
+import 'url-search-params-polyfill';
+
+const elements = {
+    filterSelect: document.getElementsByClassName('filter__dropdown'),
+    filterRooms: document.getElementsByClassName('rooms__checkbox')
+}
+
 export function render(params) {
-    console.log(params);
+
     let complexNames = ''
     params.complexNames.forEach((name) => {
         complexNames += `<option value="${name}">ЖК ${name}</option>`;
@@ -11,19 +18,14 @@ export function render(params) {
         value="${name}"/><label for="rooms_${name}" class="rooms__btn">${name}</label>`;
     });
 
-    console.log(roomValues);
-
     const markup = `<!-- Filter -->
-    <form method="GET" class="container p-0">
+    <form method="GET" class="container p-0" id="filter-form">
         <div class="heading-1">Выбор квартир:</div>
         <div class="filter">
             <div class="filter__col">
                 <div class="filter__label">Выбор проекта:</div>
                 <select name="complex" id="" class="filter__dropdown">
                     <option value="all">Все проекты</option>
-                    <option value="Генеральский"
-                        >ЖК Генеральский</option
-                    >
                     ${complexNames}
                 </select>
             </div>
@@ -93,7 +95,7 @@ export function render(params) {
             </div>
         </div>
         <div class="filter__buttons">
-            <button class="filter__show">Показать 119 объектов</button>
+            <button class="filter__show">Показать объектов</button>
             <button class="filter__reset">Сбросить фильтр</button>
         </div>
     </form>
@@ -101,4 +103,33 @@ export function render(params) {
 
     document.querySelector('#app').insertAdjacentHTML('afterbegin', markup);
 
+}
+
+export function changeButtonText(number) {
+    document.getElementsByClassName('filter__show')[0].innerText = `Показать ${number} объектов`;
+}
+
+export function getInput() {
+    const searchParams = new URLSearchParams();
+
+    if(elements.filterSelect[0].value !== 'all') {
+        searchParams.append(elements.filterSelect[0].name, elements.filterSelect[0].value);
+    }
+
+    const rooms = [];
+
+    Array.from(elements.filterRooms).forEach((checkbox) => {
+        if(checkbox.value !== '' && checkbox.checked) {
+            rooms.push(checkbox.value);
+        }
+    });
+
+    const roomsString = rooms.join(',');
+   
+    if(roomsString !== '') {
+        searchParams.append('rooms', roomsString);
+    }
+   
+    const queryString = searchParams.toString();
+    console.log(queryString);
 }

@@ -8,4 +8,16 @@ export default async function(state) {
     await state.filter.getParams();
 
     view.render(state.filter.params);
+
+    await state.filter.getResult();
+
+    view.changeButtonText(state.filter.result.length);
+
+
+    const filterForm = document.querySelector('#filter-form');
+   
+    filterForm.addEventListener('change', (event) => {
+        event.preventDefault();
+        view.getInput();
+    });
 }
