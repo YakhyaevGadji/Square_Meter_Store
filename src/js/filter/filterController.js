@@ -16,8 +16,10 @@ export default async function(state) {
 
     const filterForm = document.querySelector('#filter-form');
    
-    filterForm.addEventListener('change', (event) => {
+    filterForm.addEventListener('change', async (event) => {
         event.preventDefault();
-        view.getInput();
+        state.filter.query = view.getInput()
+        await state.filter.getResult();
+        view.changeButtonText(state.filter.result.length);
     });
 }

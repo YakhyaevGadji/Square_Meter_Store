@@ -2,7 +2,8 @@ import 'url-search-params-polyfill';
 
 const elements = {
     filterSelect: document.getElementsByClassName('filter__dropdown'),
-    filterRooms: document.getElementsByClassName('rooms__checkbox')
+    filterRooms: document.getElementsByClassName('rooms__checkbox'),
+    filterFaild: document.getElementsByClassName('range__input')
 }
 
 export function render(params) {
@@ -96,7 +97,7 @@ export function render(params) {
         </div>
         <div class="filter__buttons">
             <button class="filter__show">Показать объектов</button>
-            <button class="filter__reset">Сбросить фильтр</button>
+            <button class="filter__reset" type="reset">Сбросить фильтр</button>
         </div>
     </form>
     <!-- // Filter -->`;
@@ -129,7 +130,18 @@ export function getInput() {
     if(roomsString !== '') {
         searchParams.append('rooms', roomsString);
     }
+
+    Array.from(elements.filterFaild).forEach((item) => {
+        if(item.value !== '') {
+            searchParams.append(item.name, item.value);
+        }
+    });
    
     const queryString = searchParams.toString();
-    console.log(queryString);
+
+    if(queryString) {
+        return '?' + queryString;
+    }else {
+        return '';
+    }
 }
