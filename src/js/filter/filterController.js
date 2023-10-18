@@ -22,4 +22,10 @@ export default async function(state) {
         await state.filter.getResult();
         view.changeButtonText(state.filter.result.length);
     });
+
+    filterForm.addEventListener('reset', async () => {
+        state.filter.query = '';
+        await state.filter.getResult();
+        view.changeButtonText(state.filter.result.length);
+    });
 }
