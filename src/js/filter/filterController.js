@@ -20,6 +20,7 @@ export default async function(state) {
         event.preventDefault();
         state.filter.query = view.getInput()
         await state.filter.getResult();
+        state.results = state.filter.result;
         view.changeButtonText(state.filter.result.length);
     });
 
@@ -35,5 +36,7 @@ export default async function(state) {
         state.filter.query = '';
         await state.filter.getResult();
         view.changeButtonText(state.filter.result.length);
+
+        state.emitter.emit('event:render-listing', {});
     });
 }

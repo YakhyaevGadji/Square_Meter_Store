@@ -3,11 +3,15 @@ import singleItem from './pages/singleItemPage';
 import favoritesPage from './pages/favoritePage';
 import bidsPage from './pages/bidsPage';
 import errorPage from './pages/errorPage';
+import EventEmitter from './utils/EventEmitter';
 
-const state = {};
+const state = {
+	results: [],
+	emitter: new EventEmitter()
+};
 
 //Тестирование потом УДАЛИТЬ!
-window.state = state;
+// window.state = state;
 
 const routes = [
 	{path: '/', component: homePage},
