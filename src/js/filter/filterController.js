@@ -28,4 +28,12 @@ export default async function(state) {
         await state.filter.getResult();
         view.changeButtonText(state.filter.result.length);
     });
+
+    filterForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        console.log('submit');
+        state.filter.query = '';
+        await state.filter.getResult();
+        view.changeButtonText(state.filter.result.length);
+    });
 }
