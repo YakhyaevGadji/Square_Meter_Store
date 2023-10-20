@@ -1,5 +1,6 @@
-export default function() {
-    const HTML = `<h1>single<h1>`;
+import singleItem from './../singleitem/singleitemContoller';
 
-    document.querySelector('#app').innerHTML = HTML;
+export default function() {
+    document.querySelector('#app').innerHTML = '';
+    singleItem();
 }

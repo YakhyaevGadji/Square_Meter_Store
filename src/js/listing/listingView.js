@@ -13,9 +13,9 @@ export function render() {
 export function card(item) {
     const cardContainer = document.querySelector('#card-container');
     
-    const markup = `<article class="col-md-4" id="${item.id}">
+    const markup = `<article class="col-md-4">
         <!-- card -->
-        <a href="object.html" class="card">
+        <a href="#/item/${item.id}" class="card">
         <div class="card__header">
             <div class="card__title">
                 ЖК ${item.complex_name}
