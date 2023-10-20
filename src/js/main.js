@@ -11,7 +11,7 @@ const state = {
 };
 
 //Тестирование потом УДАЛИТЬ!
-// window.state = state;
+window.state = state;
 
 const routes = [
 	{path: '/', component: homePage},

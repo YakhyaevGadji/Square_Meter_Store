@@ -11,6 +11,8 @@ export default async function(state) {
 
     await state.filter.getResult();
 
+    state.results = state.filter.result;
+
     view.changeButtonText(state.filter.result.length);
 
 
@@ -27,15 +29,15 @@ export default async function(state) {
     filterForm.addEventListener('reset', async () => {
         state.filter.query = '';
         await state.filter.getResult();
+        state.results = state.filter.result;
         view.changeButtonText(state.filter.result.length);
     });
 
     filterForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        console.log('submit');
         state.filter.query = '';
         await state.filter.getResult();
-        view.changeButtonText(state.filter.result.length);
+        // view.changeButtonText(state.filter.result.length);
 
         state.emitter.emit('event:render-listing', {});
     });
