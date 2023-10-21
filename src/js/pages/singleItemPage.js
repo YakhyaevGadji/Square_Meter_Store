@@ -1,6 +1,6 @@
 import singleItem from './../singleitem/singleitemContoller';
 
-export default function() {
+export default function(state) {
     document.querySelector('#app').innerHTML = '';
-    singleItem();
+    singleItem(state);
 }

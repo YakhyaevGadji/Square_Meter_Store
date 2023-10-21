@@ -1,3 +1,7 @@
-export default function() {
-    console.log("start singleitem funcrion");
+import SingleItem from "./singleitemModel";
+
+export default function(state) {
+    state.singleItem = new SingleItem(state.routeParams);
+
+    state.singleItem.getItem();
 }
