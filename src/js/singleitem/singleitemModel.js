@@ -8,7 +8,7 @@ export default class SingleItem {
             const link = `https://jsproject.webcademy.ru/items/${this.id}`;
             const response = await fetch(link);
             const data = await response.json();
-            this.relult = await data;
+            this.result = await data;
         } catch(error) {
             alert(error);
         }
