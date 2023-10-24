@@ -21,4 +21,10 @@ export default async function(state) {
             view.closeModal();
         }
     });
+
+    document.querySelector('.modal__form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = view.getInput();
+        state.singleItem.getFormData(formData);
+    });
 }

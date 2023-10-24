@@ -166,8 +166,6 @@ export function render(state) {
         </div>
     </div>`
 
-    console.log(state);
-
     appContainer.insertAdjacentHTML('beforeend', markup);
     appContainer.insertAdjacentHTML('beforeend', markupModel);
 }
@@ -179,4 +177,13 @@ export function showModal() {
 
 export function closeModal() {
     document.querySelector('.modal-wrapper').classList.add('none');
+}
+
+export function getInput() {
+    const formData = {};
+
+    formData.name = document.querySelector('#form-name').value;
+    formData.phone = document.querySelector('#form-phone').value;
+    
+    return formData;
 }

@@ -13,4 +13,18 @@ export default class SingleItem {
             alert(error);
         }
     }
+
+    async getFormData(formData) {
+        const queryString = 'https://jsproject.webcademy.ru/bidnew';
+        const dataJson = await fetch(queryString, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json; charser=UTF=8'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await dataJson.json();
+        this.response = data;
+    }
 }
