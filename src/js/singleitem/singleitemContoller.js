@@ -25,6 +25,12 @@ export default async function(state) {
     document.querySelector('.modal__form').addEventListener('submit', async function(e) {
         e.preventDefault();
         const formData = view.getInput();
-        state.singleItem.getFormData(formData);
+        await state.singleItem.getFormData(formData);
+
+        if(state.singleItem.response.message === 'Bid Created') {
+            view.closeModal();
+        }else if(state.singleItem.response.message === 'Bid Not Created') {
+            alert(state.singleItem.response.errors);
+        }
     });
 }
