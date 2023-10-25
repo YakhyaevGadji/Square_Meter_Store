@@ -1,5 +1,6 @@
-export default function() {
-    const HTML = `<h1>bids<h1>`;
+import bids from './../bids/bidsController';
 
-    document.querySelector('#app').innerHTML = HTML;
+export default function(state) {
+    document.querySelector('#app').innerHTML = '';
+    bids(state);
 }
