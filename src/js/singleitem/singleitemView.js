@@ -30,14 +30,11 @@ export function render(state) {
                 <div class="object__desc-art">${state.scu}</div>
 
                 <!-- Добавить в избранное -->
-                <button class="button-favourite">
+                <button class="button-favourite" id="addToFavourite">
                     <i class="fas fa-heart"></i> <span>В избранное</span>
                 </button>
 
-                <!-- В Избранном -->
-                <button class="button-favourite button-favourite--active">
-                    <i class="fas fa-heart"></i> <span>В избранном</span>
-                </button>
+               
 
             </div>
 

@@ -33,4 +33,9 @@ export default async function(state) {
             alert(state.singleItem.response.errors);
         }
     });
+
+    document.querySelector('#addToFavourite').addEventListener('click', () => {
+        state.favourites.toggleFav(state.singleItem.id);
+        
+    })
 }
