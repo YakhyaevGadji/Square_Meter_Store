@@ -1,4 +1,4 @@
-export function render(state) {
+export function render(state, isFav) {
     const appContainer = document.querySelector('#app');
     appContainer.innerHTML = '';
 
@@ -30,8 +30,8 @@ export function render(state) {
                 <div class="object__desc-art">${state.scu}</div>
 
                 <!-- Добавить в избранное -->
-                <button class="button-favourite" id="addToFavourite">
-                    <i class="fas fa-heart"></i> <span>В избранное</span>
+                <button class="button-favourite ${isFav ? 'button-favourite--active' : ''}" id="addToFavourite">
+                    <i class="fas fa-heart"></i> <span>${isFav ? 'В избранном' : 'В избранное'}</span>
                 </button>
 
                
@@ -183,4 +183,17 @@ export function getInput() {
     formData.phone = document.querySelector('#form-phone').value;
     
     return formData;
+}
+
+export function toggleActiveFav(isFav) {
+    const btn = document.querySelector('#addToFavourite');
+
+    if(isFav) {
+        
+        btn.classList.add('button-favourite--active');
+        btn.querySelector('span').textContent = 'В избранном';
+    }else {
+        btn.classList.remove('button-favourite--active');
+        btn.querySelector('span').textContent = 'В избранное';
+    }
 }

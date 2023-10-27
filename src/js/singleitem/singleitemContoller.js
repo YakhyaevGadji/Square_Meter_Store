@@ -6,7 +6,7 @@ export default async function(state) {
 
     await state.singleItem.getItem();
 
-    view.render(state.singleItem.result);
+    view.render(state.singleItem.result, state.favourites.isFav(state.singleItem.id));
 
     document.querySelector('.button-order').addEventListener('click', () => {
         view.showModal();
@@ -36,6 +36,6 @@ export default async function(state) {
 
     document.querySelector('#addToFavourite').addEventListener('click', () => {
         state.favourites.toggleFav(state.singleItem.id);
-        
+        view.toggleActiveFav(state.favourites.isFav(state.singleItem.id));
     })
 }
