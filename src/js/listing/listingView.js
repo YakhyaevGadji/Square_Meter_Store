@@ -10,17 +10,17 @@ export function render() {
     document.querySelector('#app').insertAdjacentHTML('beforeend', markup);
 }
 
-export function card(item) {
+export function card(item, isFav) {
     const cardContainer = document.querySelector('#card-container');
     
     const markup = `<article class="col-md-4">
         <!-- card -->
-        <a href="#/item/${item.id}" class="card">
+        <a href="#/item/${item.id}" class="card" data-id="${item.id}">
         <div class="card__header">
             <div class="card__title">
                 ЖК ${item.complex_name}
             </div>
-            <div class="card__like">
+            <div class="card__like ${isFav ? 'card__like--active' : ''}">
                 <i class="fas fa-heart"></i>
             </div>
         </div>
@@ -68,4 +68,12 @@ export function card(item) {
 export function clearHtmlCardList() {
     const cardContainer = document.querySelector('#card-container');
     cardContainer.innerHTML = '';
+}
+
+export function activeFavInLike(item, isFav) {
+    if(isFav) {
+        item.classList.add('card__like--active');
+    }else {
+        item.classList.remove('card__like--active');
+    }
 }
