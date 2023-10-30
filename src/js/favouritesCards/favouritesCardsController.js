@@ -1,25 +1,16 @@
-import * as view from './listingView';
+import FavouritesCards from "./favouritesCardsModel.js";
+import * as view from './favouritesCardsView.js';
 
-export default function(state) {
-    view.render();
+export default async function(state) {
+    const favsList = state.favourites.favs;
+   
+    const favoritesModel = new FavouritesCards(favsList);
+    
+    await favoritesModel.getFavs();
 
-    state.results.forEach((item) => {
-        view.card(item, state.favourites.isFav(item.id));
-    });
+    view.renderCards(favoritesModel.cards);
 
     addToFavsListener();
-
-    state.emitter.subscribe('event:render-listing', () => {
-        view.clearHtmlCardList();
-        
-        state.results.forEach((item) => {
-            view.card(item, state.favourites.isFav(item.id));
-        });
-
-        addToFavsListener();
-    });
-
-    
 
     function addToFavsListener() {
         Array.from(document.getElementsByClassName('card__like')).forEach((item) => {

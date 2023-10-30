@@ -1,5 +1,6 @@
-export default function() {
-    const HTML = `<h1>favorite<h1>`;
+import favouritesCards from './../favouritesCards/favouritesCardsController'
 
-    document.querySelector('#app').innerHTML = HTML;
+export default function(state) {
+    document.querySelector('#app').innerHTML = '';
+    favouritesCards(state);
 }
