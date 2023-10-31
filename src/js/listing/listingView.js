@@ -1,6 +1,6 @@
 export function render() {
     const markup = `<div class="cards-wrapper">
-        <div class="container p-0 pt-5">
+        <div class="container p-0">
             <div class="row" id="card-container">
                
             </div>
@@ -8,6 +8,42 @@ export function render() {
     </div>`;
 
     document.querySelector('#app').insertAdjacentHTML('beforeend', markup);
+}
+
+function formatNumber(num) {
+    let numSplit, int, dec, newInt, resultNumber;
+    
+    num = Math.abs(num);
+    
+    num = num.toFixed(1); 
+
+    numSplit = num.split("."); 
+    
+    int = numSplit[0]; 
+    
+    dec = numSplit[1]; 
+
+    
+    if ( int.length > 3) {
+        newInt = "";
+
+        for( var i = 0; i < int.length / 3; i++  ){
+            newInt = "," + int.substring(int.length - 3 * (i + 1), int.length - 3 * i) + newInt;
+        }
+
+        if (newInt[0] === ",") {
+            newInt = newInt.substring(1);
+        }
+
+    } else if ( int === "0") {
+        newInt = "0";
+    } else {
+        newInt = int;
+    }
+
+    resultNumber = newInt + "." + dec;
+
+    return resultNumber;
 }
 
 export function card(item, isFav) {
@@ -30,7 +66,7 @@ export function card(item, isFav) {
         <div class="card__desc">
             <div class="card__price">
                 <div class="card__price-total">
-                    ${item.price_total} ₽
+                    ${formatNumber(item.price_total)} ₽
                 </div>
                 <div class="card__price-per-meter">
                     ${item.price_sq_m} ₽/м2
