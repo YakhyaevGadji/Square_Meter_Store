@@ -7,42 +7,8 @@ const elements = {
     filterSubmit: document.getElementsByClassName('filter__show')
 }
 
-function formatNumber(num) {
-    let numSplit, int, dec, newInt, resultNumber;
-
-    
-    num = Math.abs(num);    
-    num = num.toFixed(2); 
-
-
-    numSplit = num.split("."); 
-    int = numSplit[0]; 
-    dec = numSplit[1]; 
-
-    
-    if ( int.length > 3) {
-        newInt = "";
-
-        for( var i = 0; i < int.length / 3; i++  ){
-            newInt = "," + int.substring(int.length - 3 * (i + 1), int.length - 3 * i) + newInt;
-        }
-        if (newInt[0] === ",") {
-            newInt = newInt.substring(1);
-        }
-
-    } else if ( int === "0") {
-        newInt = "0";
-    } else {
-        newInt = int;
-    }
-
-    resultNumber = newInt + "." + dec;
-
-    return resultNumber;
-}
 
 export function render(params) {
-
     let complexNames = ''
     params.complexNames.forEach((name) => {
         complexNames += `<option value="${name}">ЖК ${name}</option>`;
@@ -156,7 +122,7 @@ export function render(params) {
                                 <option value="squareDESC">по площади ↓</option>
                             </select>
                         </div>
-                        <div class="view-options__type">
+                        <div class="view-options__type" id="renderRowOrBlock">
                             <!-- Cards -->
                             <input
                                 type="radio"
@@ -164,13 +130,14 @@ export function render(params) {
                                 name="displayType"
                                 id="displayCards"
                                 value="cards"
+                                data-filter="cards"
                                 checked
                             />
                             <label
                                 for="displayCards"
                                 class="view-options__type-item"
                             >
-                                <i class="fas fa-th-large"></i>
+                                <i class="fas fa-th-large" data-filter="block"></i>
                             </label>
                             <!-- List -->
                             <input
@@ -179,6 +146,7 @@ export function render(params) {
                                 name="displayType"
                                 id="displayList"
                                 value="list"
+                                data-filter="row"
                             />
                             <label
                                 for="displayList"

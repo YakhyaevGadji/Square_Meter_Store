@@ -33,8 +33,3 @@ export default class Favourites {
         localStorage.setItem('favs', JSON.stringify(this.favs));
     }
 }
-
-// <!-- В Избранном -->
-// <button class="button-favourite button-favourite--active">
-//     <i class="fas fa-heart"></i> <span>В избранном</span>
-// </button>
